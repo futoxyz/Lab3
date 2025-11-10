@@ -1,1 +1,1 @@
-SAMPLE_CONSTANT: int = 10
+FUNCTIONS: str = "\n1. Factorial\n2. Fibbonacci"
