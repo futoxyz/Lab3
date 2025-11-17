@@ -1,1 +1,0 @@
-FUNCTIONS: str = "\n1. Factorial\n2. Fibbonacci"
