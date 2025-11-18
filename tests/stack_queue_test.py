@@ -36,11 +36,11 @@ def stack_fill():
     assert a.peek() == 9
     assert a.__len__() == 5
 
-    assert a.pop == 9
-    assert a.pop == 6
-    assert a.pop == 100
-    assert a.pop == 19
-    assert a.pop == 15
+    assert a.pop() == 9
+    assert a.pop() == 6
+    assert a.pop() == 100
+    assert a.pop() == 19
+    assert a.pop() == 15
 
     with pytest.raises(IndexError):
         a.pop()
