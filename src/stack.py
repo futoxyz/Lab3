@@ -9,19 +9,15 @@ class Stack:
         self.tail: Node | None = None
         self.length: int = 0
 
-
     def is_empty(self) -> bool:
         return not self.tail
 
-
-    def __len__(self):
+    def __len__(self) -> int:
         return self.length
-
 
     def push(self, x: int) -> None:
         self.tail = Node(x, self.tail)
         self.length += 1
-
 
     def pop(self) -> int:
         if self.is_empty():
@@ -31,3 +27,6 @@ class Stack:
         self.tail = self.tail.next
         self.length -= 1
         return x
+
+    def peek(self) -> int:
+        return self.tail.value
