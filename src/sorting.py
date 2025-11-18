@@ -43,7 +43,7 @@ def radix_sort(a: list[int], base: int = 10) -> list[int]:
         for k in range(len(a)):
             el = a[k]
             digit_a.append(digit(el, exp, base))
-        a = digit_sort(a, digit_a)
+        a = counting_digit_sort(digit_a, a)
         exp *= base
     return a
 
@@ -62,8 +62,17 @@ def bucket_sort(a: list[float], buckets: int | None = None) -> list[float]:
         arr[index].append(num)
     for i in range(buckets):
         arr[i] = insertion_sort(arr[i])
-    result = []
+    ans = []
     for bucket in arr:
-        result.extend(bucket)
+        ans.extend(bucket)
 
-    return result
+    return ans
+
+
+def heap_sort(a: list[int]) -> list[int]:
+    length = len(a)
+    for i in range(length // 2 - 1, -1, -1):
+        heapify(a, length, i)
+    for i in range(length - 1, 0, -1):
+        a[0], a[i] = a[i], a[0]
+        heapify(a, i, 0)
