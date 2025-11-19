@@ -20,6 +20,9 @@ def factorial_recursive(n: int) -> int:
 
 
 def fibo(n: int) -> int:
+    '''
+    Вычисляется через формулу Бине.
+    '''
     if n <= 0:
         raise ValueError("Input must me positive integer")
 

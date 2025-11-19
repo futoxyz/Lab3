@@ -1,4 +1,8 @@
 class Node:
+    '''
+    Класс для создания массива, каждый из элементов которого имеет ссылки prev и next, чтобы обращаться
+    к предыдущему и следующему элементам соответственно.
+    '''
     def __init__(self, value: int, prev: int | None = None, next: int | None = None) -> None:
         self.value = value
         self.prev = prev
@@ -7,11 +11,19 @@ class Node:
 
 class Queue:
     def __init__(self) -> None:
+        '''
+        head - Элемент в начале очереди.
+        tail - Элемент в конце очереди.
+        length - Длина массива.
+        '''
         self.head: Node | None = None
         self.tail: Node | None = None
         self.length: int = 0
 
     def is_empty(self) -> bool:
+        '''
+        :return: True, если очередь пустая, иначе False.
+        '''
         return not self.head
 
     def __len__(self) -> int:
@@ -47,6 +59,10 @@ class Queue:
         return x
 
     def front(self) -> int:
+        '''
+        Обращается к элементу в начале очереди, но не достает его.
+        :return: Значение элемента в начале очереди.
+        '''
         try:
             return self.head.value
         except:

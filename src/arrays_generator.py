@@ -2,6 +2,15 @@ import random
 
 
 def rand_int_array(n: int, lo: int, hi: int, distinct=False, seed=None) -> list[int]:
+    '''
+    Генератор неотсортированного списка n целых чисел.
+    :param n: Количество чисел в списке.
+    :param lo: Нижняя граница чисел.
+    :param hi: Верхняя граница чисел.
+    :param distinct: Отсутствие совпадений чисел в списке (True/False).
+    :param seed: Сид генерации.
+    :return: Список.
+    '''
     if seed:
         random.seed(seed)
     if not distinct:
@@ -20,6 +29,13 @@ def rand_int_array(n: int, lo: int, hi: int, distinct=False, seed=None) -> list[
 
 
 def nearly_sorted(n: int, swaps: int, seed=None) -> list[int]:
+    '''
+    Генератор списка, который почти отсортирован, и отличается от сортированного малым количеством смен пары чисел.
+    :param n: Количество чисел в списке.
+    :param swaps: Количество случайно сменённых пар в конечном списке.
+    :param seed: Сид генерации.
+    :return: Список.
+    '''
     if seed:
         random.seed(seed)
 
@@ -35,6 +51,13 @@ def nearly_sorted(n: int, swaps: int, seed=None) -> list[int]:
 
 
 def many_duplicates(n: int, k_unique=5, seed=None) -> list[int]:
+    '''
+    Генератор списка, в котором значительное количество повторений среди чисел.
+    :param n: Количество чисел в списке.
+    :param k_unique: Количество уникальных чисел, которые будут повторяться в списке.
+    :param seed: Сид генерации.
+    :return: Список.
+    '''
     if seed:
         random.seed(seed)
 
@@ -51,10 +74,23 @@ def many_duplicates(n: int, k_unique=5, seed=None) -> list[int]:
 
 
 def reverse_sorted(n: int) -> list[int]:
+    '''
+    Генерирует обратно отсортированный список последовательных чисел от n-1 до 0 включительно.
+    :param n: Количество чисел в списке.
+    :return: Список.
+    '''
     return list(range(n-1, -1, -1))
 
 
 def rand_float_array(n: int, lo=0.0, hi=1.0, seed=None) -> list[float]:
+    '''
+    Генерирует список чисел с плавающей точкой.
+    :param n: Количество чисел в списке.
+    :param lo: Нижняя граница чисел.
+    :param hi: Верхняя граница чисел.
+    :param seed: Сид генерации.
+    :return: Список float.
+    '''
     if seed:
         random.seed(seed)
 
