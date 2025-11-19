@@ -1,5 +1,8 @@
 from src.sorting_extra import *
 
+'''
+Все функции принимают только список, возврат - отсортированный список.
+'''
 
 def bubble_sort(a: list[int]) -> list[int]:
     length = len(a)
@@ -36,6 +39,9 @@ def counting_sort(a: list[int]) -> list[int]:
 
 
 def radix_sort(a: list[int], base: int = 10) -> list[int]:
+    '''
+    :param base: Необязательный параметр - основание разрядов для сортировки.
+    '''
     largest = max(a)
     exp = 1
     while largest // exp > 0:
@@ -49,8 +55,12 @@ def radix_sort(a: list[int], base: int = 10) -> list[int]:
 
 
 def bucket_sort(a: list[float], buckets: int | None = None) -> list[float]:
-    if buckets is None:
+    '''
+    :param buckets: Необязательный параметр - количество вёдер для сортировки.
+    '''
+    if not buckets:
         buckets = len(a)
+
     min_val = min(a)
     max_val = max(a)
     bucket_range = (max_val - min_val) / buckets
@@ -67,12 +77,3 @@ def bucket_sort(a: list[float], buckets: int | None = None) -> list[float]:
         ans.extend(bucket)
 
     return ans
-
-
-def heap_sort(a: list[int]) -> list[int]:
-    length = len(a)
-    for i in range(length // 2 - 1, -1, -1):
-        heapify(a, length, i)
-    for i in range(length - 1, 0, -1):
-        a[0], a[i] = a[i], a[0]
-        heapify(a, i, 0)
