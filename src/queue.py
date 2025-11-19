@@ -47,4 +47,7 @@ class Queue:
         return x
 
     def front(self) -> int:
-        return self.head.value
+        try:
+            return self.head.value
+        except:
+            raise IndexError("Queue is empty")

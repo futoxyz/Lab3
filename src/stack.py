@@ -29,4 +29,7 @@ class Stack:
         return x
 
     def peek(self) -> int:
-        return self.tail.value
+        try:
+            return self.tail.value
+        except:
+            raise IndexError("Stack is empty")

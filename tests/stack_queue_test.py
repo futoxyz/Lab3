@@ -44,6 +44,8 @@ def stack_fill():
 
     with pytest.raises(IndexError):
         a.pop()
+    with pytest.raises(IndexError):
+        a.peek()
 
 
 def enqueue():
@@ -87,3 +89,5 @@ def queue_fill():
 
     with pytest.raises(IndexError):
         a.dequeue()
+    with pytest.raises(IndexError):
+        a.front()
