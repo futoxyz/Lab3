@@ -36,5 +36,3 @@ def factorial_recursive_test():
     assert factorial_recursive(0) == 1
     for i in range(35):
         assert factorial_recursive(i) == FACTORIAL_VALUES[i]
-
-factorial_test(), factorial_recursive_test(), fibo_test(), fibo_recursive_test()
