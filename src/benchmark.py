@@ -22,10 +22,10 @@ def benchmark_sorts(arrays: dict[str, list], algos: dict[str, callable]) -> dict
     '''
     result = {}
     for array_name, array in arrays.items():
-        results[array_name] = {}
+        result[array_name] = {}
         for algo_name, algo_func in algos.items():
             test_array = array.copy()
             time_taken = timeit_once(algo_func, test_array)
-            results[array_name][algo_name] = time_taken
+            result[array_name][algo_name] = time_taken
 
     return result
