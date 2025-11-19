@@ -12,9 +12,9 @@ class Node:
 class Queue:
     def __init__(self) -> None:
         '''
-        head - Элемент в начале очереди.
-        tail - Элемент в конце очереди.
-        length - Длина массива.
+        :param head: - Элемент в начале очереди.
+        :param tail: - Элемент в конце очереди.
+        :param length: - Длина массива.
         '''
         self.head: Node | None = None
         self.tail: Node | None = None

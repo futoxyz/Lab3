@@ -11,8 +11,8 @@ class Node:
 class Stack:
     def __init__(self) -> None:
         '''
-        :param self.tail: Элемент в конце стека.
-        :param self.length: Длина стека.
+        :param tail: Элемент в конце стека.
+        :param length: Длина стека.
         '''
         self.tail: Node | None = None
         self.length: int = 0
