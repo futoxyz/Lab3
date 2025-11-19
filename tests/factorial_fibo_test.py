@@ -2,7 +2,7 @@ import pytest
 from src.factorial_fibo import *
 from src.constants import FIBO_VALUES, FACTORIAL_VALUES
 
-def fibo_test():
+def fibo_test() -> None:
     with pytest.raises(ValueError):
         fibo(-5)
 
@@ -12,7 +12,7 @@ def fibo_test():
     for i in range(1, 50):
         assert fibo(i) == FIBO_VALUES[i]
 
-def fibo_recursive_test():
+def fibo_recursive_test() -> None:
     with pytest.raises(ValueError):
         fibo_recursive(-5)
 
@@ -23,14 +23,14 @@ def fibo_recursive_test():
         assert fibo_recursive(i) == FIBO_VALUES[i]
 
 
-def factorial_test():
+def factorial_test() -> None:
     with pytest.raises(ValueError):
         factorial(-5)
     assert factorial(0) == 1
     for i in range(35):
         assert factorial(i) == FACTORIAL_VALUES[i]
 
-def factorial_recursive_test():
+def factorial_recursive_test() -> None:
     with pytest.raises(ValueError):
         factorial_recursive(-5)
     assert factorial_recursive(0) == 1

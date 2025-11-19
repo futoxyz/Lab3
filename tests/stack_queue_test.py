@@ -3,7 +3,7 @@ from src.stack import Stack
 from src.queue import Queue
 
 
-def stack_push():
+def stack_push() -> None:
     a = Stack()
     assert a.is_empty() == True
     a.push(11)
@@ -12,7 +12,7 @@ def stack_push():
     assert a.is_empty() == False
 
 
-def stack_fill():
+def stack_fill() -> None:
     a = Stack()
 
     assert a.__len__() == 0
@@ -48,7 +48,7 @@ def stack_fill():
         a.peek()
 
 
-def enqueue():
+def enqueue() -> None:
     a = Stack()
     assert a.is_empty() == True
     a.push(11)
@@ -57,7 +57,7 @@ def enqueue():
     assert a.is_empty() == False
 
 
-def queue_fill():
+def queue_fill() -> None:
     a = Queue()
 
     assert a.__len__() == 0
