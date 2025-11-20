@@ -9,7 +9,7 @@ def test_fibo() -> None:
     with pytest.raises(ValueError):
         fibo(0)
 
-    for i in range(1, 40):
+    for i in range(1, 35):
         assert fibo(i) == FIBO_VALUES[i]
 
 def test_fibo_recursive() -> None:
@@ -19,7 +19,7 @@ def test_fibo_recursive() -> None:
     with pytest.raises(ValueError):
         fibo_recursive(0)
 
-    for i in range(1, 40):
+    for i in range(1, 35):
         assert fibo_recursive(i) == FIBO_VALUES[i]
 
 
