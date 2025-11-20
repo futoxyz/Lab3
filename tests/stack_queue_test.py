@@ -49,11 +49,11 @@ def test_stack_fill_test() -> None:
 
 
 def test_enqueue() -> None:
-    a = Stack()
+    a = Queue()
     assert a.is_empty() == True
-    a.push(11)
+    a.enqueue(3)
     assert a.is_empty() == False
-    a.push(9)
+    a.enqueue(14)
     assert a.is_empty() == False
 
 
