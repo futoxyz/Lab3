@@ -48,7 +48,7 @@ def test_stack_fill_test() -> None:
         a.peek()
 
 
-def enqueue_test() -> None:
+def test_enqueue() -> None:
     a = Stack()
     assert a.is_empty() == True
     a.push(11)
@@ -57,7 +57,7 @@ def enqueue_test() -> None:
     assert a.is_empty() == False
 
 
-def queue_fill_test() -> None:
+def test_queue_fill() -> None:
     a = Queue()
 
     assert a.__len__() == 0
