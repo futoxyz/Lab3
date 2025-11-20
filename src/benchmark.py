@@ -5,7 +5,7 @@ def timeit_once(func, *args, **kwargs) -> float:
     Измерение времени работы сортировки для некоторого массива.
     :param func: Фукнция (метод) сортировки.
     :param args: Список для сортировки.
-    :param kwargs: Дополнительный аргумент для сортировки (для radix sort: base и bucker sort: buckets)
+    :param kwargs: Дополнительный аргумент для сортировки (для radix sort: base и bucket sort: buckets)
     :return: Время, за которое завершилась сортировка.
     '''
     start = time.perf_counter()
