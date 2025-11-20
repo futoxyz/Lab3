@@ -3,15 +3,14 @@ from src.sorting import *
 from src.constants import INT_DISTINCT_LIST, INT_DUPLICATES_LIST, INT_FLOAT_LIST, ALGOS_LIST
 
 
-def is_sorted(func, *args, **kwargs) -> bool:
+def is_sorted(func, *args) -> bool:
     '''
     Подтверждение, что после работы функции возвращается отсортированный список.
     :param func: Проверяемая функция.
     :param args: Массив.
-    :param kwargs: Дополнительный аргумент для сортировки (для radix sort: base и bucket sort: buckets).
     :return: True/False.
     '''
-    array = func(*args, **kwargs)
+    array = func(*args)
     n = len(array)
 
     for i in range(n - 1):
