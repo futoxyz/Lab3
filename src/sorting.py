@@ -1,18 +1,18 @@
 from src.sorting_extra import *
 
 '''
-Все функции принимают только список, возврат - отсортированный список.
+Все функции принимают только список (целых чисел), возврат - отсортированный список.
 '''
 
 def bubble_sort(a: list[int]) -> list[int]:
-    length = len(a)
+    n = len(a)
     sorted = False
     while not sorted:
-        for i in range(length - 1):
+        for i in range(n - 1):
             if a[i+1] < a[i]:
                 a[i], a[i+1] = a[i+1], a[i]
                 break
-            if i == length - 2:
+            if i == n - 2:
                 sorted = True
     return a
 
@@ -26,15 +26,17 @@ def counting_sort(a: list[int]) -> list[int]:
     n = len(a)
     largest = max(a)
     count_a = [0] * (largest + 1)
+    ans = [0]*n
     for i in a:
         count_a[i] += 1
     for j in range(1, largest + 1):
         count_a[j] += count_a[j - 1]
-    ans = [0] * n
+
     for i in range(n - 1, -1, -1):
         x = a[i]
         ans[count_a[x] - 1] = x
         count_a[x] -= 1
+
     return ans
 
 
@@ -56,24 +58,36 @@ def radix_sort(a: list[int], base: int = 10) -> list[int]:
 
 def bucket_sort(a: list[float], buckets: int | None = None) -> list[float]:
     '''
-    :param buckets: Необязательный параметр - количество вёдер для сортировки.
+    :param a: Список чисел с плавающей точкой.
+    :param buckets: Необязательный параметр - количество ведер для сортировки.
     '''
     if not buckets:
         buckets = len(a)
 
-    min_val = min(a)
-    max_val = max(a)
-    bucket_range = (max_val - min_val) / buckets
+    minimum = min(a)
+    largest = max(a)
+    bucket_range = (largest - minimum)
     arr = [[] for _ in range(buckets)]
     for num in a:
-        index = int((num - min_val) / bucket_range)
+        index = int((num - minimum) / bucket_range * buckets)
         if index == buckets:
             index -= 1
         arr[index].append(num)
     for i in range(buckets):
-        arr[i] = insertion_sort(arr[i])
+        if arr[i]:
+            arr[i] = quick_sort(arr[i])
     ans = []
     for bucket in arr:
         ans.extend(bucket)
 
     return ans
+
+def heap_sort(a: list[int]) -> list[int]:
+    n = len(a)
+    for i in range(n // 2 - 1, -1, -1):
+        heapify(a, n, i)
+    for i in range(n - 1, 0, -1):
+        a[0], a[i] = a[i], a[0]
+        heapify(a, i, 0)
+
+    return a
