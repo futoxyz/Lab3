@@ -1,6 +1,5 @@
 import pytest
-from src.sorting import *
-from src.constants import INT_DISTINCT_LIST, INT_DUPLICATES_LIST, INT_FLOAT_LIST, ALGOS_LIST
+from src.constants import INT_DISTINCT_LIST, INT_DUPLICATES_LIST, INT_FLOAT_LIST, ALGOS
 
 
 def is_sorted(func, *args) -> bool:
@@ -24,12 +23,11 @@ def test_static_sort() -> None:
     Проверка всех алгоритмов сортировки на заданных массивах на 100 чисел.
     :return: Ничего не возвращает.
     '''
-    ALGOS = [globals()[name] for name in ALGOS_LIST]
-    for func in ALGOS:
+    for func in ALGOS.values():
         assert is_sorted(func, INT_DISTINCT_LIST) == True
 
-    for func in ALGOS:
+    for func in ALGOS.values():
         assert is_sorted(func, INT_DUPLICATES_LIST) == True
 
     '''Отдельно для bucket sort массив с числами с плавающей точкой.'''
-    assert is_sorted(bucket_sort, INT_FLOAT_LIST) == True
+    assert is_sorted(ALGOS["Bucket sort"], INT_FLOAT_LIST) == True

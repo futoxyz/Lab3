@@ -99,3 +99,12 @@ def rand_float_array(n: int, lo=0.0, hi=1.0, seed=None) -> list[float]:
         array.append(random.uniform(lo, hi))
 
     return array
+
+
+def dynamic_benchmark_arrays() -> dict:
+    arrays = {}
+    arrays["Distinct int"] = rand_int_array(100, 0, 1000, distinct=True, seed=None)
+    arrays["Duplicates int"] = many_duplicates(100, 35, seed=None)
+    arrays["Nearly sorted int"] = nearly_sorted(100, 35, seed=None)
+    arrays["Reversed int"] = reverse_sorted(100)
+    return arrays

@@ -1,4 +1,6 @@
 import time
+from src.constants import STATIC_DICT, ALGOS
+from src.arrays_generator import dynamic_benchmark_arrays
 
 def timeit_once(func, *args, **kwargs) -> float:
     '''
@@ -21,11 +23,24 @@ def benchmark_sorts(arrays: dict[str, list], algos: dict[str, callable]) -> dict
     :return: Словарь результатов.
     '''
     result = {}
-    for array_name, array in arrays.items():
-        result[array_name] = {}
+    for arr_name, arr in arrays.items():
+        result[arr_name] = {}
         for algo_name, algo_func in algos.items():
-            test_array = array.copy()
-            time_taken = timeit_once(algo_func, test_array)
-            result[array_name][algo_name] = time_taken
+            test_arr = arr.copy()
+            time_taken = timeit_once(algo_func, test_arr)
+            result[arr_name][algo_name] = time_taken
 
     return result
+
+def run_benchmark(dynamic=True) -> str:
+    match dynamic:
+        case True:
+            arrays = dynamic_benchmark_arrays()
+        case False:
+            arrays = STATIC_DICT
+    result = benchmark_sorts(arrays, ALGOS)
+    for lst, res in result.items():
+        print(f"\n{lst}")
+        print("_")
+        for alg, time in res.items():
+            print(f"{alg} - {time}s")

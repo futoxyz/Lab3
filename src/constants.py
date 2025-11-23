@@ -1,3 +1,6 @@
+from src.sorting import *
+from src.arrays_generator import *
+
 ROOT: float = 2.2360679774997896964091736687313
 
 FIBO_VALUES: list = [
@@ -45,4 +48,8 @@ INT_FLOAT_LIST: list = [4.361983978774897, 2.0821173685589307, 16.6498072810939,
     22.855425077516063, 17.471632859207975, 1.2653083495759914, 10.603701680271268, 6.038876169511679
 ]
 
-ALGOS_LIST: list = ['bubble_sort', "quick_sort", "counting_sort", "radix_sort", "bucket_sort", "heap_sort"]
+STATIC_DICT: dict = {"Distinct int": INT_DISTINCT_LIST, "Duplicates int": INT_DUPLICATES_LIST}
+
+ALGOS: dict = {"Bubble sort": bubble_sort, "Quick sort": quick_sort, "Counting sort": counting_sort,
+               "Radix sort": radix_sort, "Bucket sort": bucket_sort, "Heap sort": heap_sort
+}
