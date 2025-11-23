@@ -33,6 +33,11 @@ def benchmark_sorts(arrays: dict[str, list], algos: dict[str, callable]) -> dict
     return result
 
 def run_benchmark(dynamic=True) -> str:
+    '''
+    Функция запуска и вывода бенчмарка.
+    :param dynamic: True, если нужен бенчмарк с генерируемыми массивами, False для заданных массивов.
+    :return: Отчёт бенчмарка.
+    '''
     match dynamic:
         case True:
             arrays = dynamic_benchmark_arrays()

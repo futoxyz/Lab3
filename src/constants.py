@@ -1,5 +1,4 @@
 from src.sorting import *
-from src.arrays_generator import *
 
 ROOT: float = 2.2360679774997896964091736687313
 

@@ -102,6 +102,9 @@ def rand_float_array(n: int, lo=0.0, hi=1.0, seed=None) -> list[float]:
 
 
 def dynamic_benchmark_arrays() -> dict:
+    '''
+    :return: Словарь сгенерированных списков для бенчмарка.
+    '''
     arrays = {}
     arrays["Distinct int"] = rand_int_array(100, 0, 1000, distinct=True, seed=None)
     arrays["Duplicates int"] = many_duplicates(100, 35, seed=None)
