@@ -1,6 +1,30 @@
+def is_correct(a: list[int]) -> bool:
+    '''
+    Проверка ввода в функцию.
+    :param a: Ввод в функцию. Ожидается массив с целыми числами.
+    :return: Ничего, если подали массив с целыми числами, иначе ошибка программы.
+    '''
+    if type(a) is not list:
+        raise ValueError(f"Not a list: {a}")
+    for el in a:
+        if type(el) is not int:
+            raise ValueError(f"Not a list of integers: {el}")
+
+def is_correct_float(a) -> bool:
+    '''
+    Аналогичная функция, но для массива с числами с плавающей точкой.
+    :param a: Ввод в функцию. Ожидается массив с float.
+    :return: Ничего, если подали массив с float, иначе ошибка программы.
+    '''
+    if type(a) is not list:
+        raise ValueError(f"Not a list: {a}")
+    for el in a:
+        if type(el) is not float and type(el) is not int:
+            raise ValueError(f"Not a list of float: {el}")
+
 def partition(a: list[int], low: int, high: int) -> int:
     '''
-    quick_sort - Распределение элементов относительного опорного.
+    Quick sort - Распределение элементов относительного опорного.
     :param a: Сортируемый список.
     :param low: Нижняя грань проверяемых элементов.
     :param high: Верхняя грань проверяемых элементов.
@@ -17,7 +41,7 @@ def partition(a: list[int], low: int, high: int) -> int:
 
 def quick_sort_step(a: list[int], low: int, high: int) -> None:
     '''
-    quick_sort - Шаг распределения для левой и правой сторон.
+    Quick sort - Шаг распределения для левой и правой сторон.
     :param a: Сортируемый список.
     :param low: Нижняя грань проверяемых элементов.
     :param high: Верхняя грань проверяемых элементов.
@@ -31,7 +55,7 @@ def quick_sort_step(a: list[int], low: int, high: int) -> None:
 
 def digit(n: int, exp: int, base: int) -> int:
     '''
-    radix_sort - Выделение разряда при текущем показателе.
+    Radix sort - Выделение разряда при текущем показателе.
     :param n: Число для выделения разряда.
     :param exp: Текущее значение показателя.
     :param base: Основание в сортировке.
@@ -44,7 +68,7 @@ def digit(n: int, exp: int, base: int) -> int:
 
 def counting_digit_sort(digit_a: list[int], a: list[int]) -> list[int]:
     '''
-    radix_sort - Сортирует основной список, сортируя соотвественный список с раздярами при текущем показателе.
+    Radix sort - Сортирует основной список, сортируя соотвественный список с раздярами при текущем показателе.
     :param digit_a: Список разрядов.
     :param a: Основной сортируемый список.
     :return: Отсортированный по разрядам основной список.
@@ -63,9 +87,16 @@ def counting_digit_sort(digit_a: list[int], a: list[int]) -> list[int]:
         count_a[x] -= 1
     return ans
 
+def quick_sort_bucket(a: list[int]) -> list[int]:
+    '''
+    Обычный quick sort для сортировки бакетов.
+    '''
+    quick_sort_step(a, 0, len(a) - 1)
+    return a
+
 def heapify(a: list[int], n: int, i: int) -> None:
     '''
-    heap sort - Шаг сортировки поддерева.
+    Heap sort - Шаг сортировки поддерева.
     :param a: Список.
     :param n: Размер поддерева.
     :param i: Индекс узла поддерева.

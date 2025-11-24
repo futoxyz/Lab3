@@ -5,6 +5,7 @@ from src.sorting_extra import *
 '''
 
 def bubble_sort(a: list[int]) -> list[int]:
+    is_correct(a)
     n = len(a)
     sorted = False
     while not sorted:
@@ -18,11 +19,13 @@ def bubble_sort(a: list[int]) -> list[int]:
 
 
 def quick_sort(a: list[int]) -> list[int]:
+    is_correct(a)
     quick_sort_step(a, 0, len(a) - 1)
     return a
 
 
 def counting_sort(a: list[int]) -> list[int]:
+    is_correct(a)
     n = len(a)
     largest = max(a)
     count_a = [0] * (largest + 1)
@@ -44,6 +47,7 @@ def radix_sort(a: list[int], base: int = 10) -> list[int]:
     '''
     :param base: Необязательный параметр - основание разрядов для сортировки.
     '''
+    is_correct(a)
     largest = max(a)
     exp = 1
     while largest // exp > 0:
@@ -61,9 +65,9 @@ def bucket_sort(a: list[float], buckets: int | None = None) -> list[float]:
     :param a: Список чисел с плавающей точкой.
     :param buckets: Необязательный параметр - количество ведер для сортировки.
     '''
+    is_correct_float(a)
     if not buckets:
         buckets = len(a)
-
     minimum = min(a)
     largest = max(a)
     bucket_range = (largest - minimum)
@@ -75,7 +79,7 @@ def bucket_sort(a: list[float], buckets: int | None = None) -> list[float]:
         arr[index].append(num)
     for i in range(buckets):
         if arr[i]:
-            arr[i] = quick_sort(arr[i])
+            arr[i] = quick_sort_bucket(arr[i])
     ans = []
     for bucket in arr:
         ans.extend(bucket)
@@ -83,6 +87,7 @@ def bucket_sort(a: list[float], buckets: int | None = None) -> list[float]:
     return ans
 
 def heap_sort(a: list[int]) -> list[int]:
+    is_correct(a)
     n = len(a)
     for i in range(n // 2 - 1, -1, -1):
         heapify(a, n, i)
