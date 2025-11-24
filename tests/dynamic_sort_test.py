@@ -33,3 +33,15 @@ def test_dynamic_sort() -> None:
     '''Отдельно для bucket sort массив с числами с плавающей точкой.'''
     float_arr = rand_float_array(100, 0, 25)
     assert is_sorted(ALGOS["Bucket sort"], float_arr) == True
+
+
+    '''Тесты для неправильного ввода'''
+    for func in ALGOS.values():
+        with pytest.raises(ValueError):
+            func("abc")
+        with pytest.raises(ValueError):
+            func(123)
+        with pytest.raises(ValueError):
+            func(["a", "b"])
+        with pytest.raises(ValueError):
+            func([[1,2], [3]])
