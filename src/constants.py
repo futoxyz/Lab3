@@ -45,12 +45,16 @@ INT_FLOAT_LIST: list = [4.361983978774897, 2.0821173685589307, 16.6498072810939,
     22.855425077516063, 17.471632859207975, 1.2653083495759914, 10.603701680271268, 6.038876169511679
 ]
 
-STATIC_DICT: dict = {"Distinct int": INT_DISTINCT_LIST, "Duplicates int": INT_DUPLICATES_LIST}
+STATIC_DICT: dict = {
+    "Distinct int": INT_DISTINCT_LIST,
+    "Duplicates int": INT_DUPLICATES_LIST
+}
 
-ALGOS: dict = {"Bubble sort": sorting.bubble_sort,
-               "Quick sort": sorting.quick_sort,
-               "Counting sort": sorting.counting_sort,
-               "Radix sort": sorting.radix_sort,
-               "Bucket sort": sorting.bucket_sort,
-               "Heap sort": sorting.heap_sort
+ALGOS: dict = {
+    "Bubble sort": sorting.bubble_sort,
+    "Quick sort": sorting.quick_sort,
+    "Counting sort": sorting.counting_sort,
+    "Radix sort": sorting.radix_sort,
+    "Bucket sort": sorting.bucket_sort,
+    "Heap sort": sorting.heap_sort
 }
