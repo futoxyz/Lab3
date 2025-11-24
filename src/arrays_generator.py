@@ -13,16 +13,17 @@ def rand_int_array(n: int, lo: int, hi: int, distinct=False, seed=None) -> list[
     '''
     if seed:
         random.seed(seed)
+    array: list[int] = []
     if not distinct:
         array = [random.randint(lo, hi) for _ in range(n)]
     else:
         if  hi - lo + 1 < n:
             raise ValueError(f"Cannot generate {n} distinct numbers in given range")
 
-        array = set()
-        while len(array) < n:
-            array.add(random.randint(lo, hi))
-        array = list(array)
+        unique_arr: set = set()
+        while len(unique_arr) < n:
+            unique_arr.add(random.randint(lo, hi))
+        array = list(unique_arr)
         random.shuffle(array)
 
     return array
@@ -39,7 +40,7 @@ def nearly_sorted(n: int, swaps: int, seed=None) -> list[int]:
     if seed:
         random.seed(seed)
 
-    array = list(range(n))
+    array: list[int] = list(range(n))
     for _ in range(swaps):
         i = random.randint(0, n - 1)
         j = random.randint(0, n - 1)
@@ -61,14 +62,14 @@ def many_duplicates(n: int, k_unique=5, seed=None) -> list[int]:
     if seed:
         random.seed(seed)
 
-    array = []
-    unique = set()
+    array: list[int] = []
+    unique: set = set()
     while len(unique) < k_unique:
         unique.add(random.randint(0,n))
-    unique = list(unique)
+    unique_list: list[int] = list(unique)
 
     while len(array) < n:
-        array.append(random.choice(unique))
+        array.append(random.choice(unique_list))
 
     return array
 
@@ -94,7 +95,7 @@ def rand_float_array(n: int, lo=0.0, hi=1.0, seed=None) -> list[float]:
     if seed:
         random.seed(seed)
 
-    array = []
+    array: list[float] = []
     while len(array) < n:
         array.append(random.uniform(lo, hi))
 

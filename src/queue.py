@@ -3,10 +3,10 @@ class Node:
     Класс для создания массива, каждый из элементов которого имеет ссылки prev и next, чтобы обращаться
     к предыдущему и следующему элементам соответственно.
     '''
-    def __init__(self, value: int, prev: int | None = None, next: int | None = None) -> None:
+    def __init__(self, value: int) -> None:
         self.value = value
-        self.prev = prev
-        self.next = next
+        self.prev: Node | None = None
+        self.next: Node | None = None
 
 
 class Queue:
@@ -30,7 +30,7 @@ class Queue:
         return self.length
 
     def enqueue(self, x: int) -> None:
-        if self.is_empty():
+        if not self.head:
             self.head = Node(x)
             self.tail = self.head
         elif not self.tail:
@@ -38,32 +38,33 @@ class Queue:
             self.head.next = self.tail
             self.tail.prev = self.head
         else:
-            new_node = Node(x, self.tail)
-            self.tail.next = new_node
-            self.tail = new_node
+            node = Node(x)
+            node.prev = self.tail
+            self.tail.next = node
+            self.tail = node
 
         self.length += 1
 
     def dequeue(self) -> int:
-        if self.is_empty():
-            raise IndexError("Queue is empty")
-
-        x = self.head.value
-        self.head = self.head.next
         if self.head:
-            self.head.prev = None
-        else:
-            self.tail = None
+            x = self.head.value
+            self.head = self.head.next
+            if self.head:
+                self.head.prev = None
+            else:
+                self.tail = None
 
-        self.length -= 1
-        return x
+            self.length -= 1
+            return x
+        else:
+            raise IndexError("Queue is empty")
 
     def front(self) -> int:
         '''
         Обращается к элементу в начале очереди, но не достает его.
         :return: Значение элемента в начале очереди.
         '''
-        try:
+        if self.head:
             return self.head.value
-        except:
+        else:
             raise IndexError("Queue is empty")

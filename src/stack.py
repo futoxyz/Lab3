@@ -3,9 +3,9 @@ class Node:
     Класс для создания массива, каждый из элементов которого имеет только ссылку next, чтобы обращаться
     к следующему элементу.
     '''
-    def __init__(self, value: int, next: int | None = None) -> None:
+    def __init__(self, value: int) -> None:
         self.value = value
-        self.next = next
+        self.next: Node | None = None
 
 
 class Stack:
@@ -27,24 +27,26 @@ class Stack:
         return self.length
 
     def push(self, x: int) -> None:
-        self.tail = Node(x, self.tail)
+        node = Node(x)
+        node.next = self.tail
+        self.tail = node
         self.length += 1
 
     def pop(self) -> int:
-        if self.is_empty():
+        if self.tail:
+            x = self.tail.value
+            self.tail = self.tail.next
+            self.length -= 1
+            return x
+        else:
             raise IndexError("Stack is empty")
-
-        x = self.tail.value
-        self.tail = self.tail.next
-        self.length -= 1
-        return x
 
     def peek(self) -> int:
         '''
         Обращается к элементу в конце стека, но не достает его.
         :return: Значение элемента в конце стека.
         '''
-        try:
+        if self.tail:
             return self.tail.value
-        except:
+        else:
             raise IndexError("Stack is empty")

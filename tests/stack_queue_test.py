@@ -5,11 +5,11 @@ from src.queue import Queue
 
 def test_stack_push() -> None:
     a = Stack()
-    assert a.is_empty() == True
+    assert a.is_empty()
     a.push(11)
-    assert a.is_empty() == False
+    assert not a.is_empty()
     a.push(9)
-    assert a.is_empty() == False
+    assert not a.is_empty()
 
 
 def test_stack_fill_test() -> None:
@@ -50,11 +50,11 @@ def test_stack_fill_test() -> None:
 
 def test_enqueue() -> None:
     a = Queue()
-    assert a.is_empty() == True
+    assert a.is_empty()
     a.enqueue(3)
-    assert a.is_empty() == False
+    assert not a.is_empty()
     a.enqueue(14)
-    assert a.is_empty() == False
+    assert not a.is_empty()
 
 
 def test_queue_fill() -> None:

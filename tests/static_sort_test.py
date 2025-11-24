@@ -24,10 +24,22 @@ def test_static_sort() -> None:
     :return: Ничего не возвращает.
     '''
     for func in ALGOS.values():
-        assert is_sorted(func, INT_DISTINCT_LIST) == True
+        assert is_sorted(func, INT_DISTINCT_LIST)
 
     for func in ALGOS.values():
-        assert is_sorted(func, INT_DUPLICATES_LIST) == True
+        assert is_sorted(func, INT_DUPLICATES_LIST)
 
     '''Отдельно для bucket sort массив с числами с плавающей точкой.'''
-    assert is_sorted(ALGOS["Bucket sort"], INT_FLOAT_LIST) == True
+    assert is_sorted(ALGOS["Bucket sort"], INT_FLOAT_LIST)
+
+
+    '''Тесты для неправильного ввода'''
+    for func in ALGOS.values():
+        with pytest.raises(ValueError):
+            func("abc")
+        with pytest.raises(ValueError):
+            func(123)
+        with pytest.raises(ValueError):
+            func(["a", "b"])
+        with pytest.raises(ValueError):
+            func([[1, 2], [3]])

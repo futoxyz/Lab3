@@ -1,4 +1,4 @@
-def is_correct(a: list[int]) -> bool:
+def is_correct(a: list[int]) -> None:
     '''
     Проверка ввода в функцию.
     :param a: Ввод в функцию. Ожидается массив с целыми числами.
@@ -10,7 +10,7 @@ def is_correct(a: list[int]) -> bool:
         if type(el) is not int:
             raise ValueError(f"Not an integer in list: {el}")
 
-def is_correct_float(a) -> bool:
+def is_correct_float(a) -> None:
     '''
     Аналогичная функция, но для массива с числами с плавающей точкой.
     :param a: Ввод в функцию. Ожидается массив с float.
@@ -103,12 +103,12 @@ def heapify(a: list[int], n: int, i: int) -> None:
     :return:
     '''
     largest = i
-    l = 2 * i + 1
-    r = 2 * i + 2
-    if l < n and a[l] > a[largest]:
-        largest = l
-    if r < n and a[r] > a[largest]:
-        largest = r
+    lf = 2 * i + 1
+    rg = 2 * i + 2
+    if lf < n and a[lf] > a[largest]:
+        largest = lf
+    if rg < n and a[rg] > a[largest]:
+        largest = rg
 
     if largest != i:
         a[i], a[largest] = a[largest], a[i]

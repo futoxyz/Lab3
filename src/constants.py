@@ -1,4 +1,4 @@
-from src.sorting import *
+from src import sorting
 
 ROOT: float = 2.2360679774997896964091736687313
 
@@ -47,6 +47,10 @@ INT_FLOAT_LIST: list = [4.361983978774897, 2.0821173685589307, 16.6498072810939,
 
 STATIC_DICT: dict = {"Distinct int": INT_DISTINCT_LIST, "Duplicates int": INT_DUPLICATES_LIST}
 
-ALGOS: dict = {"Bubble sort": bubble_sort, "Quick sort": quick_sort, "Counting sort": counting_sort,
-               "Radix sort": radix_sort, "Bucket sort": bucket_sort, "Heap sort": heap_sort
+ALGOS: dict = {"Bubble sort": sorting.bubble_sort,
+               "Quick sort": sorting.quick_sort,
+               "Counting sort": sorting.counting_sort,
+               "Radix sort": sorting.radix_sort,
+               "Bucket sort": sorting.bucket_sort,
+               "Heap sort": sorting.heap_sort
 }

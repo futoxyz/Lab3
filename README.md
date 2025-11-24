@@ -60,4 +60,3 @@ source .venv/Scripts/activate
 - `reverse_sorted(n)` Генерация массива из `n` целых чисел от `n-1` до `0`
 
 ## Бенчмарк
-

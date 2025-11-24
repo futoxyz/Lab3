@@ -1,5 +1,5 @@
 import pytest
-from src.factorial_fibo import *
+from src.factorial_fibo import fibo, fibo_recursive, factorial, factorial_recursive
 from src.constants import FIBO_VALUES, FACTORIAL_VALUES
 
 '''
