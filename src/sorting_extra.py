@@ -8,7 +8,7 @@ def is_correct(a: list[int]) -> bool:
         raise ValueError(f"Not a list: {a}")
     for el in a:
         if type(el) is not int:
-            raise ValueError(f"Not a list of integers: {el}")
+            raise ValueError(f"Not an integer in list: {el}")
 
 def is_correct_float(a) -> bool:
     '''
