@@ -2,6 +2,8 @@ import time
 from src.constants import STATIC_DICT, ALGOS
 from typing import Callable
 from src.arrays_generator import dynamic_benchmark_arrays
+from rich import print
+from rich.table import Table
 
 def timeit_once(func, *args, **kwargs) -> float:
     '''
@@ -42,13 +44,24 @@ def run_benchmark(dynamic=True) -> None:
     match dynamic:
         case True:
             arrays = dynamic_benchmark_arrays()
+            title = "Dynamic benchmark results"
         case False:
             arrays = STATIC_DICT
+            title = "Static benchmark results"
     result: dict[str, dict[str, float]] = benchmark_sorts(arrays, ALGOS)
+    table = Table(title=title)
+
+    table.add_column("List type",justify="left" , style="magenta", no_wrap=True)
+    table.add_column("Algorithm", justify="left")
+    table.add_column("Time", justify="left", style="cyan")
     for lst, res in result.items():
-        print(f"\n{lst}")
-        print("__________")
+        algorithms: list[str]\
+            = []
+        times: list[str] = []
         for alg, tm in res.items():
-            print(f"{alg} - {tm}s")
-    print(">")
+            algorithms.append(alg)
+            times.append(f"{tm}s")
+        table.add_row(lst, "\n".join(algorithms), "\n".join(times))
+        table.add_section()
+    print(table)
     return
