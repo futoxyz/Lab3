@@ -1,12 +1,15 @@
-
-
+from src.benchmark import run_benchmark
 
 def main() -> None:
     """
-    Запуск программы
+    Запуск программы (два бенчмарка).
     :return: Данная функция ничего не возвращает
     """
-    pass
+    print("STATIC BENCHMARK")
+    run_benchmark(dynamic=False)
+    print("\nDYNAMIC BENCHMARK")
+    run_benchmark()
+    return
 
 
 if __name__ == "__main__":

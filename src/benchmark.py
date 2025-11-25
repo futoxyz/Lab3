@@ -37,7 +37,7 @@ def run_benchmark(dynamic=True) -> None:
     '''
     Функция запуска и вывода бенчмарка.
     :param dynamic: True, если нужен бенчмарк с генерируемыми массивами, False для заданных массивов.
-    :return: Отчёт бенчмарка.
+    :return: Ничего не возвращает. Выводит отчёт бенчмарка в консоль.
     '''
     match dynamic:
         case True:
@@ -47,7 +47,8 @@ def run_benchmark(dynamic=True) -> None:
     result: dict[str, dict[str, float]] = benchmark_sorts(arrays, ALGOS)
     for lst, res in result.items():
         print(f"\n{lst}")
-        print("_")
+        print("__________")
         for alg, tm in res.items():
             print(f"{alg} - {tm}s")
+    print(">")
     return
