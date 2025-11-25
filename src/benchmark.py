@@ -55,8 +55,7 @@ def run_benchmark(dynamic=True) -> None:
     table.add_column("Algorithm", justify="left")
     table.add_column("Time", justify="left", style="cyan")
     for lst, res in result.items():
-        algorithms: list[str]\
-            = []
+        algorithms: list[str] = []
         times: list[str] = []
         for alg, tm in res.items():
             algorithms.append(alg)
